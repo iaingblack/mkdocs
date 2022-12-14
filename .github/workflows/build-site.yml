@@ -12,13 +12,17 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v2
 
+      - name: Build Site
+        run: |
+          ls -lah
+
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CUSTOM_DOMAIN: mkdocs.rootisgod.com
-          CONFIG_FILE: $GITHUB_WORKSPACE/mkdocs.yml
+          CONFIG_FILE: mkdocs.yml
           # EXTRA_PACKAGES: build-base
           # GITHUB_DOMAIN: github.myenterprise.com
           # REQUIREMENTS: folder/requirements.txt
