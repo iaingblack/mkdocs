@@ -3,17 +3,17 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
-
+      - master 
+      - main
+permissions:
+  contents: write
 jobs:
-  build:
-    name: Deploy docs
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v2
-
-      - name: Build Site
-        run: |
-          pip install mkdocs
-          mkdocs gh-deploy
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs-material 
+      - run: mkdocs gh-deploy --force
