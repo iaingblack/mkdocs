@@ -15,4 +15,5 @@ jobs:
 
       - name: Build Site
         run: |
+          pip install mkdocs
           mkdocs gh-deploy
