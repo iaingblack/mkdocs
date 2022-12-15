@@ -1,3 +1,3 @@
-Welcome!
+# My Learning Resources
 
-Blah
+A collection of things I learn and do.
