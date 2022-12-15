@@ -1,3 +1,3 @@
 # My Learning Resources
 
-A collection of things I learn and do.
+One stop shop for anything I learn and want to remember.
