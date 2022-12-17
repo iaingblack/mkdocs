@@ -58,6 +58,7 @@ sudo kind create cluster --config=kind.yaml
 
 ## Get Token
 
+Run the script [get-token.sh](./assets/get-token.sh)
 ```bash
 kubectl get -n kube-system secret $(kubectl get -n kube-system sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
 ```
@@ -97,7 +98,7 @@ subjects:
 
 ## Apply
 
-Then a script called [setup-admin-user.sh](./assets/setup-admin-user.sh) to seth things up
+Then a script called [setup-admin-user.sh](./assets/setup-admin-user.sh) to set things up
 
 ```bash
 kubectl apply -f admin-user-serviceaccount.yaml
