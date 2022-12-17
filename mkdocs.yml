@@ -1,2 +1,5 @@
 site_name: Wiki
-theme: readthedocs
+#theme: readthedocs
+theme:
+#  name: bootstrap386
+  name: material
