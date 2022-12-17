@@ -1,0 +1,9 @@
+#Install Putty tools (MSI)
+set PATH=C:\Program Files (x86)\PuTTY;%PATH%
+
+#Set your password
+set mypassword=enteryourpassword
+
+#Copy script to run, chmod +x then run it with sudo permissions
+pscp -pw %mypassword% .\LHR-linux.sh blacki@lhr-lberspup201:
+plink.exe -ssh -t -pw %mypassword% blacki@lhr-lberspup201 "chmod +x ./test.sh; echo %mypassword% | sudo -S ./test.sh"
