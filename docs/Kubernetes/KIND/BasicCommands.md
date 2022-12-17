@@ -1,6 +1,6 @@
 
 
-# Initial Install
+# Basic Commands
 
 ## Install Kubectl
 
