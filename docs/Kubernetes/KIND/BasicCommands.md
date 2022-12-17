@@ -56,11 +56,17 @@ Create the cluster
 sudo kind create cluster --config=kind.yaml
 ```
 
+## Get Token
+
+```bash
+kubectl get -n kube-system secret $(kubectl get -n kube-system sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
+```
+
 # RBAC and Users
 
 ## Admin User
 
-Create a file called admin-user-serviceaccount.yaml
+Create a file called [admin-user-serviceaccount.yaml](./assets/admin-user-serviceaccount.yaml)
 
 ```yaml
 apiVersion: v1
@@ -72,7 +78,7 @@ metadata:
 
 ## RBAC Admin User
 
-Cereate a file called admin-user-rbac.yaml
+Cereate a file called [admin-user-rbac.yaml](./assets/admin-user-rbac.yaml)
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -91,7 +97,7 @@ subjects:
 
 ## Apply
 
-Then a script to run the commands
+Then a script called [setup-admin-user.sh](./assets/setup-admin-user.sh) to seth things up
 
 ```bash
 kubectl apply -f admin-user-serviceaccount.yaml
@@ -100,11 +106,12 @@ echo '- - - - - - - - - - - - - - - - - - - - - - - - - -'
 kubectl get -n kube-system secret $(kubectl get -n kube-system sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}" | tee token.txt
 echo
 echo '- - - - - - - - - - - - - - - - - - - - - - - - - -'
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user admin-user
 ```
 
 ## Kubernetes Dashboard
 
-To get the Kubernetes dashboard
+To get the Kubernetes dashboard and proxy to it, run this script [dashboard-and-proxy.sh](./assets/dashboard-and-proxy.sh)
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.3.1/aio/deploy/recommended.yaml
