@@ -1,5 +1,6 @@
 site_name: Wiki
 #theme: readthedocs
 theme:
+#  pip install mkdocs-bootstrap386
 #  name: bootstrap386
   name: material
