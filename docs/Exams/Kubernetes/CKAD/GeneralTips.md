@@ -1,5 +1,13 @@
 # General Tips
 
+## Alias
+
+Change to a 'k'
+
+```bash
+alias k=kubectl
+```
+
 ## Example Exam Questions
 
 [https://github.com/dgkanatsios/CKAD-exercises](https://github.com/dgkanatsios/CKAD-exercises)
