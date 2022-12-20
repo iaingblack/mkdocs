@@ -46,3 +46,26 @@ Write-Host "Deleting Images"
 $script = $folder + "\remove-dangling-images.ps1"
 & $script 
 ```
+
+## Config
+
+### Reduce Download Threads
+
+Note the concurrent lines.
+
+```
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "experimental": false,
+  "features": {
+    "buildkit": true
+  },
+  "max-concurrent-downloads": 1,
+  "max-concurrent-uploads": 1
+}
+```
