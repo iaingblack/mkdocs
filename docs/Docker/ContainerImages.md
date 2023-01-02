@@ -1,3 +1,9 @@
+Build like this
+
+```bash
+docker build . -t <name_you_want_image_to_have>
+```
+
 # Ansible
 
 ```yaml
