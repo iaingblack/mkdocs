@@ -6,6 +6,8 @@ docker build . -t <name_you_want_image_to_have>
 
 # Ansible
 
+Remoting script - [https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1](https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1)
+
 ```yaml
 FROM centos:7
 
@@ -27,4 +29,7 @@ RUN pip3 install --upgrade pip; \
     python3 -m pip install ansible; \
     ansible-galaxy collection install azure.azcollection; \
     pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
+
+RUN ansible-galaxy collection install ansible.windows; \
+    ansible-galaxy install datadog.datadog
 ```
