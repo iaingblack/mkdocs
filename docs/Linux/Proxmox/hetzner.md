@@ -123,6 +123,13 @@ We can now access it directly! Get an ACME cert
 
 Add Websocket support for VNC support.
 
+
+# Add a NAT Network
+
+Thanks to [this](https://computingforgeeks.com/how-to-create-and-configure-bridge-networking-for-kvm-in-linux/?utm_source=pocket_saves)
+
+
+
 ------------
 
 
