@@ -2,10 +2,12 @@ On ubuntu
 
 https://snapcraft.io/
 
+The dotnet sdk snap gives a segmentation fault, so is useless
+
 ```bash
-sudo apt  install ssh git
+sudo apt-get update 
+sudo apt  install ssh git dotnet-sdk-6.0
 sudo snap install go --classic
-sudo snap install dotnet-sdk --channel=6.0 --classic
 sudo snap install microk8s --classic
 sudo snap install kubectl --classic
 sudo snap install docker
